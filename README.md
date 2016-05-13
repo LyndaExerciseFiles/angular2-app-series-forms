@@ -12,5 +12,5 @@
 5. Run the Gulp command `> gulp`
   
 ## More Stuff
-Check out some of my [other courses on lynda.com](lynda.com/justinschwartzenberger). 
+Check out some of my [other courses on lynda.com](http://lynda.com/justinschwartzenberger). 
 You can also [follow me on twitter](http://twitter.com/schwarty), or read [my blog](http://schwarty.com).
