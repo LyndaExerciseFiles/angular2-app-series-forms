@@ -1,9 +1,7 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { SandoAppComponent, environment } from './app/';
+import { SandoAppComponent } from './app/';
 
-if (environment.production) {
-  enableProdMode();
-}
+enableProdMode();
 
 bootstrap(SandoAppComponent);

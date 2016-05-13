@@ -1,0 +1,11 @@
+{
+    "preview": "http://localhost:8000",
+    "terminals": [{
+        "name": "Gulp",
+        "command": "gulp\r"
+    }],
+    "files": ["index.html"],
+    "ui": {
+        "bottom": false
+    }
+}

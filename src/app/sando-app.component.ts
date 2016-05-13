@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {OrderSheetComponent} from './counter/index';
+import {OrderSheetComponent} from './counter';
 
 @Component({
   moduleId: module.id,

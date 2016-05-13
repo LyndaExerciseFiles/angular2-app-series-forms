@@ -9,10 +9,6 @@ const map: any = {
 const packages: any = {
 };
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-/***********************************************************************************************
- * Everything underneath this line is managed by the CLI.
- **********************************************************************************************/
 const barrels: string[] = [
   // Angular specific barrels.
   '@angular/core',
@@ -31,7 +27,7 @@ const barrels: string[] = [
   'app/shared',
   'app/counter/order-sheet-component',
   'app/counter',
-  /** @cli-barrel */
+  'app/counter/shared',
 ];
 
 const cliSystemConfigPackages: any = {};

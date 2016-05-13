@@ -1,25 +1,25 @@
 <h1>Order Sheet</h1>
 <h3>Specialty Sandwiches</h3>
 <ul>
-    <li *ngFor="let specialtySandwich of menuItems.specialtySandwiches">
-        {{ specialtySandwich.name }}
-    </li>
+  <li *ngFor="let specialtySandwich of menuItems.specialtySandwiches">
+    {{ specialtySandwich.name }}
+  </li>
 </ul>
 <h4>Meats</h4>
 <ul>
-    <li *ngFor="let meat of menuItems.meats">
-        <label>
+  <li *ngFor="let meat of menuItems.meats">
+    <label>
             <input type="checkbox"> {{meat}}
         </label>
-    </li>
+  </li>
 </ul>
 <h4>Cheeses</h4>
 <ul>
-    <li *ngFor="let cheese of menuItems.cheeses">
-        <label>
+  <li *ngFor="let cheese of menuItems.cheeses">
+    <label>
             <input type="checkbox"> {{cheese}}
         </label>
-    </li>
+  </li>
 </ul>
 <label>
     Name: <input type="text" name="customerName">

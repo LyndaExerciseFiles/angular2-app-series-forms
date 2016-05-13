@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../shared/index';
+import { MenuService } from '../shared';
 
 @Component({
   moduleId: module.id,
