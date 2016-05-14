@@ -10,22 +10,29 @@ export class MenuService {
       specialtySandwiches: [
         {
           name: 'The Grinder',
+          bread: 'sourdough roll',
           meats: ['salami','ham','roast beef'],
           cheeses: ['cheddar','colby jack'],
           veggiesAndSuch: ['lettuce','tomato','onions','mayo']
         },
         {
           name: 'Cordon Bleu',
+          bread: 'white roll',
           meats: ['chicken (grilled)','ham'],
           cheeses: ['swiss'],
           veggiesAndSuch: ['lettuce','tomato','mustard']
         },
         {
           name: 'Cali Cheesesteak',
+          bread: 'white roll',
           meats: ['steak'],
           cheeses: ['pepper jack'],
           veggiesAndSuch: ['onions','avocado','black pepper']
         }
+      ],
+      breads: [
+        'wheat roll','white roll','sourdough roll',
+        'ciabatta','pita','marble rye','leaf lettuce'
       ],
       meats: [
         'ham','turkey','salami','steak',

@@ -1,5 +1,8 @@
 <h2>Order Sheet</h2>
-<form>
+<form novalidate>
+  <section>
+    <input type="text" placeholder="Your Name">
+  </section>
   <section>
     <h1>Pick your size</h1>
     <label>
@@ -20,6 +23,16 @@
   </section>
   <section>
     <h1>Build Your Own</h1>
+    <section>
+      <h1>A Bread</h1>
+      <ul>
+        <li *ngFor="let bread of menuItems.breads">
+          <label>
+            <input type="radio" name="bread"> {{bread}}
+          </label>
+        </li>
+      </ul>
+    </section>
     <section>
       <h1>The Meats</h1>
       <ul>
@@ -50,15 +63,20 @@
         </li>
       </ul>
     </section>
-    <section>
-      <label>
-        <input type="text" placeholder="Your Name">
-      </label>
-      <label>
-          Weird Requests:
-          <textarea></textarea>
-      </label>
-    </section>
+  </section>
+  <section>
+    <h1>Weird Requests</h1>
+    <ul>
+      <li>
+        <input type="text">
+        <button type="button" title="Remove Request"></button>
+      </li>
+    </ul>
+    <button type="button">Add a Request</button>
+  </section>
+  <section>
+    <h1>Other Notes</h1>
+    <textarea></textarea>
   </section>
   <button type="submit">Place Order</button>
 </form>
