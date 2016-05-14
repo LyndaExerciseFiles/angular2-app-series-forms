@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { MenuService } from '../shared';
+import {Component} from '@angular/core';
+import {MenuService} from '../shared';
+import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
 
 @Component({
-  moduleId: module.id,
   selector: 'order-sheet',
+  providers: [MenuService],
+  directives: [DebugPanelComponent],
   templateUrl: 'order-sheet.component.html',
   styleUrls: ['order-sheet.component.css'],
-  providers: [MenuService]
+  moduleId: module.id
 })
 export class OrderSheetComponent {
   menuItems = {};
@@ -16,5 +18,4 @@ export class OrderSheetComponent {
   ngOnInit() {
     this.menuItems = this._menuService.getMenuItems();
   }
-
 }

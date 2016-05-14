@@ -1,1 +1,1 @@
-export { OrderSheetComponent } from './order-sheet/order-sheet.component';
+export {OrderSheetComponent} from './order-sheet/order-sheet.component';
