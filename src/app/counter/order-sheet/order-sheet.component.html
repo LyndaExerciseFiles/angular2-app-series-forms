@@ -16,52 +16,60 @@
     <h1>Specialty Sandwiches</h1>
     <select>
       <option value=""></option>
-      <option *ngFor="let specialtySandwich of menuItems.specialtySandwiches">
-        {{specialtySandwich.name}}
-      </option>
+      <option value="The Grinder">The Grinder</option>
+      <option value="Cordon Bleu">Cordon Bleu</option>
+      <option value="Cali Cheesesteak">Cali Cheesesteak</option>
     </select>
   </section>
   <section>
     <h1>Build Your Own</h1>
     <section>
       <h1>A Bread</h1>
-      <ul>
-        <li *ngFor="let bread of menuItems.breads">
-          <label>
-            <input type="radio" name="bread"> {{bread}}
-          </label>
-        </li>
-      </ul>
+      <label>
+        <input type="radio" name="bread"> Wheat Roll
+      </label>
+      <label>
+        <input type="radio" name="bread"> White Roll
+      </label>
+      <label>
+        <input type="radio" name="bread"> Sourdough Roll
+      </label>
     </section>
     <section>
       <h1>The Meats</h1>
-      <ul>
-        <li *ngFor="let meat of menuItems.meats">
-          <label>
-            <input type="checkbox"> {{meat}}
-          </label>
-        </li>
-      </ul>
+      <label>
+        <input type="checkbox"> Ham
+      </label>
+      <label>
+        <input type="checkbox"> Turkey
+      </label>
+      <label>
+        <input type="checkbox"> Roast Beef
+      </label>
     </section>
     <section>
       <h1>The Cheeses</h1>
-      <ul>
-        <li *ngFor="let cheese of menuItems.cheeses">
-          <label>
-            <input type="checkbox"> {{cheese}}
-          </label>
-        </li>
-      </ul>
+      <label>
+        <input type="checkbox"> Provolone
+      </label>
+      <label>
+        <input type="checkbox"> Cheddar
+      </label>
+      <label>
+        <input type="checkbox"> Swiss
+      </label>
     </section>
     <section>
       <h1>Veggies 'n Such</h1>
-      <ul>
-        <li *ngFor="let item of menuItems.veggiesAndSuch">
-          <label>
-            <input type="checkbox"> {{item}}
-          </label>
-        </li>
-      </ul>
+      <label>
+        <input type="checkbox"> Lettuce
+      </label>
+      <label>
+        <input type="checkbox"> Tomato
+      </label>
+      <label>
+        <input type="checkbox"> Mustard
+      </label>
     </section>
   </section>
   <section>
@@ -80,4 +88,4 @@
   </section>
   <button type="submit">Place Order</button>
 </form>
-<debug-panel [data]="menuItems"></debug-panel>
+<debug-panel></debug-panel>
