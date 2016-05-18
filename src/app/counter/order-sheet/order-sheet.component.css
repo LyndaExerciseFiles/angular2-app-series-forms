@@ -1,0 +1,18 @@
+h2 {
+  font-size: 3em;
+  margin: 0;
+  color: rgb(148, 192, 204);
+}
+form > section > h1 {
+  font-size: 2em;
+  color: rgb(250, 212, 139);
+}
+form > section > section > h1 {
+  font-size: 1.6em;
+}
+input[type=checkbox], input[type=radio] {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+}
