@@ -45,6 +45,7 @@ var staticFiles = [
   'src/**/*.css',
   'src/**/*.ico',
   'src/**/*.png',
+  'src/**/*.svg',
   'src/**/*.jpg',
   'src/**/*.webapp'
 ];
