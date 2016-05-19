@@ -9,6 +9,6 @@ import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
   moduleId: module.id
 })
 export class OrderSheetComponent {
-    constructor() {
+  constructor() {
   }
 }
