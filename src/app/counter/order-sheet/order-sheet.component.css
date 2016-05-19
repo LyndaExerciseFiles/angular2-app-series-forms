@@ -1,18 +1,70 @@
+:host {
+  display: block;
+  position: relative;
+  border: 2px solid #fff;
+  padding: 2em;
+}
+:host:before {
+  content: " ";
+  position: absolute;
+  border: 3px dotted #fff;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
 h2 {
   font-size: 3em;
   margin: 0;
   color: rgb(148, 192, 204);
 }
+form > section {
+  margin-bottom: 2em;
+}
 form > section > h1 {
   font-size: 2em;
-  color: rgb(250, 212, 139);
+  background-color: rgb(244, 244, 240);
+  color: #262223;
+  display: inline;
+  padding: 10px;
+  text-transform: uppercase;
 }
 form > section > section > h1 {
+  text-transform: uppercase;
   font-size: 1.6em;
+}
+input[type=text] {
+  border: 2px solid #fff;
+  font-size: 2em;
+  padding: 4px;
+  color: #fff;
+  background-color: transparent;
 }
 input[type=checkbox], input[type=radio] {
   width: 28px;
   height: 28px;
   position: relative;
   margin: 20px auto;
+}
+button {
+  font-family: 'Gloria Hallelujah', cursive;
+  cursor: pointer;
+  position: relative;
+  font-size: 2em;
+  border: 2px solid #fff;
+  background-color: #fff;
+  color: #262223;
+  padding: 12px;
+}
+button:before {
+  content: ' ';
+  position: absolute;
+  border: 2px solid #262223;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+}
+button:hover {
+  color: rgb(148, 192, 204);
 }
