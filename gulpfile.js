@@ -47,6 +47,8 @@ var staticFiles = [
   'src/**/*.png',
   'src/**/*.svg',
   'src/**/*.jpg',
+  'src/**/*.ttf',
+  'src/**/*.woff2',
   'src/**/*.webapp'
 ];
 gulp.task('copystatic', function () {
