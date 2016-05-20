@@ -4,7 +4,7 @@ import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/c
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'debug-panel',
   template: `
-    <input id="debugToggle" type="checkbox" (change)="isVisible = !isVisible">
+    <input id="debugToggle" type="checkbox" (change)="isVisible = !isVisible;onSaveState()">
     <label for="debugToggle"></label>
     <div>
       <pre>{{ data | json }}</pre>
@@ -43,7 +43,7 @@ import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/c
     input[type=checkbox]:checked+label:before {
       content: "hide debug";
     }
-    input[type=checkbox]:checked~div {
+    :host.is-visible div {
       display: block;
       height: calc(100% - 1.6em);
     }
@@ -67,7 +67,14 @@ export class DebugPanelComponent {
   get visible() { return this.isVisible; }
   isVisible = false;
   
+  constructor() {
+    this.isVisible = localStorage.getItem('debugIsVisible') === 'true';
+  }
+  
   ngOnInit() {
     this.hasContent = (this.data);
+  }
+  onSaveState(){
+    localStorage.setItem('debugIsVisible', this.isVisible.toString());
   }
 }
