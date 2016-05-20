@@ -1,7 +1,7 @@
 <h2>Order Sheet</h2>
 <form novalidate *ngIf="formActive" [ngFormModel]="orderSheetForm" (ngSubmit)="onSubmitForm()">
   <section class="customer-name">
-    <input type="text" placeholder="Your Name">
+    <input type="text" placeholder="Your Name" ngControl="customerName">
   </section>
   <section class="size">
     <h1>Pick your size</h1>
@@ -99,13 +99,13 @@
   </section>
   <section class="weird-requests">
     <h1>Weird Requests</h1>
-    <ul>
-      <li>
-        <input type="text">
-        <button type="button" title="Remove Request">Remove</button>
+    <ul ngControlGroup="weirdRequests">
+      <li *ngFor="let item of weirdRequestsControls.controls; let i = index">
+        <input type="text" ngControl="{{i}}">
+        <button type="button" title="Remove Request" (click)="onRemoveWeirdRequest(i)">Remove</button>
       </li>
     </ul>
-    <button type="button">Add a Request</button>
+    <button type="button" (click)="onAddWeirdRequest()">Add a Request</button>
   </section>
   <section>
     <h1>Other Notes</h1>
