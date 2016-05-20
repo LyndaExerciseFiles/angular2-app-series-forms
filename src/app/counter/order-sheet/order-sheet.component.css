@@ -100,9 +100,9 @@ button {
   cursor: pointer;
   position: relative;
   font-size: 2em;
-  border: 2px solid rgb(148, 192, 204);
+  border: 2px solid rgb(250, 212, 139);
   border-radius: 8px;
-  background-color: rgb(148, 192, 204);
+  background-color: rgb(250, 212, 139);
   color: #262223;
   padding: 12px;
 }
@@ -117,8 +117,8 @@ button:before {
   bottom: 2px;
 }
 button:hover {
-  background-color: rgb(250, 212, 139);
-  border-color: rgb(250, 212, 139);
+  background-color: rgb(148, 192, 204);
+  border-color: rgb(148, 192, 204);
 }
 button:focus {
   outline: none;
@@ -179,4 +179,31 @@ button:focus {
     border: 0;
     font-size: 2em;
   }
+}
+
+
+.errors {
+  color: rgba(237, 119, 119, 1);
+  font-size: 1.6em;
+}
+input[type=text].ng-invalid,
+select.ng-invalid,
+textarea.ng-invalid {
+  border-width: 3px;
+  border-bottom-color: rgba(237, 119, 119, 1);
+}
+textarea.ng-invalid {
+  border-color: rgba(237, 119, 119, 1);
+}
+.ng-invalid+label {
+  color: rgba(237, 119, 119, 1);
+}
+button:disabled {
+  background-color: rgba(246, 244, 241, 1);
+  border-color: rgba(246, 244, 241, 1);
+  cursor: default;
+  color: rgba(65, 65, 67, .8);
+}
+button:disabled:before {
+  border-color: rgba(65, 65, 67, .8);
 }
