@@ -5,13 +5,13 @@
   </section>
   <section class="size">
     <h1>Pick your size</h1>
-    <ul>
+    <ul ngControlGroup="sizes">
       <li>
-        <input id="sizeSmall" type="radio" name="size">
+        <input id="sizeSmall" type="radio" name="size" ngControl="sizeSmall">
         <label for="sizeSmall">Small</label>
       </li>
       <li>
-        <input id="sizeLarge" type="radio" name="size">
+        <input id="sizeLarge" type="radio" name="size" ngControl="sizeLarge">
         <label for="sizeLarge">Large</label>
       </li>
     </ul>
@@ -30,17 +30,17 @@
     <h1>Build Your Own</h1>
     <section>
       <h1>A Bread</h1>
-      <ul>
+      <ul ngControlGroup="breads">
         <li>
-          <input id="breadWheatRoll" type="radio" name="bread">
+          <input id="breadWheatRoll" type="radio" name="bread" ngControl="breadWheatRoll">
           <label for="breadWheatRoll">Wheat Roll</label>
         </li>
         <li>
-          <input id="breadWhiteRoll" type="radio" name="bread">
+          <input id="breadWhiteRoll" type="radio" name="bread" ngControl="breadWhiteRoll">
           <label for="breadWhiteRoll">White Roll</label>
         </li>
         <li>
-          <input id="breadSourdoughRoll" type="radio" name="bread">
+          <input id="breadSourdoughRoll" type="radio" name="bread" ngControl="breadSourdoughRoll">
           <label for="breadSourdoughRoll">Sourdough Roll</label>
         </li>
       </ul>
