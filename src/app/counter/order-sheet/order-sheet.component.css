@@ -1,6 +1,7 @@
 :host {
   display: block;
   padding: 2em;
+  margin-bottom: 40px;
 }
 ul {
   list-style: none;
@@ -125,6 +126,17 @@ button:focus {
 }
 .customer-name input[type=text] {
   width: 100%;
+}
+.welcome-back {
+  font-size: 1.6em;
+  color: #262223;
+  background-color: rgba(188, 223, 138, 1);
+  padding: 0 1em;
+  border-radius: 12px;
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  z-index: 2;
 }
 .size ul > li {
   display: inline-block;
