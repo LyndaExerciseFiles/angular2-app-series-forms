@@ -150,6 +150,9 @@ button:focus {
   width: 80%;
   width: calc(100% - 6em);
 }
+.specialty-sandwiches label {
+  font-size: 1.6em;
+}
 .build-your-own {
   display: flex;
   flex-flow: row wrap;
