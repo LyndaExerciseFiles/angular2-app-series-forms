@@ -19,14 +19,14 @@
   <section class="specialty-sandwiches">
     <h1>Specialty Sandwiches</h1>
     <label>Me wants:</label>
-    <select ngControl="specialtySandwich">
+    <select ngControl="specialtySandwich" #specialtySandwich="ngForm">
       <option value=""></option>
       <option value="The Grinder">The Grinder</option>
       <option value="Cordon Bleu">Cordon Bleu</option>
       <option value="Cali Cheesesteak">Cali Cheesesteak</option>
     </select>
   </section>
-  <section class="build-your-own">
+  <section class="build-your-own" *ngIf="!specialtySandwich.value">
     <h1>Build Your Own</h1>
     <section>
       <h1>A Bread</h1>
