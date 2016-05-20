@@ -70,4 +70,8 @@ export class OrderSheetComponent {
       this.formActive = true;
     }, 0);
   }
+  
+  onSubmitForm() {
+    console.log(this.orderSheetForm.value);
+  }
 }
