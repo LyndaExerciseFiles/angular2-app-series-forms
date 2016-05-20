@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'debug-panel',
   template: `
-    <input id="debugToggle" type="checkbox">
+    <input id="debugToggle" type="checkbox" (change)="isVisible = !isVisible">
     <label for="debugToggle"></label>
     <div>
       <pre>{{ data | json }}</pre>
@@ -11,11 +12,18 @@ import {Component, Input} from '@angular/core';
   `,
   styles: [`
     :host {
+      display: none;
+    }
+    :host.has-content {
       display: block;
       background-color: rgba(237, 119, 119, .9);
       position: fixed;
       top: 0;
       right: 0;
+    }
+    :host.is-visible {
+      bottom: 0;
+      min-width: 50%;
     }
     input[type=checkbox] {
       display: none;
@@ -23,7 +31,9 @@ import {Component, Input} from '@angular/core';
     label {
       display: block;
       text-align: center;
-      padding: 4px 8px;
+      height: 1.6em;
+      padding: .4em;
+      line-height: 1.3em;
     }
     label:before {
       content: "show debug";
@@ -35,20 +45,29 @@ import {Component, Input} from '@angular/core';
     }
     input[type=checkbox]:checked~div {
       display: block;
-      height: 100%;
+      height: calc(100% - 1.6em);
     }
     div {
       display: none;
+      overflow: auto;
     }
     pre {
-      overflow-y: scroll;
-      height: 100%;
       font-size: 2em;
-      padding: 6px 20px;
+      padding: 20px;
       margin: 0;
     }
   `]
 })
 export class DebugPanelComponent {
   @Input() data;
+  @HostBinding('class.has-content')
+  get content() { return this.hasContent; }
+  hasContent = false;
+  @HostBinding('class.is-visible') 
+  get visible() { return this.isVisible; }
+  isVisible = false;
+  
+  ngOnInit() {
+    this.hasContent = (this.data);
+  }
 }
