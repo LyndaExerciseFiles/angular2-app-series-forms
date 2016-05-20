@@ -12,6 +12,7 @@ import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
 export class OrderSheetComponent {
   orderSheetForm: ControlGroup;
   weirdRequestsControls: ControlArray;
+  formActive = true;
   
   constructor(private _formBuilder: FormBuilder) {
     this._buildForm();
@@ -60,5 +61,13 @@ export class OrderSheetComponent {
   
   onRemoveWeirdRequest(index) {
     this.weirdRequestsControls.removeAt(index);
+  }
+  
+  onClearForm() {
+    this._buildForm();
+    this.formActive = false;
+    setTimeout(() => {
+      this.formActive = true;
+    }, 0);
   }
 }
