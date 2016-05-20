@@ -1,21 +1,18 @@
 :host {
   display: block;
-  position: relative;
-  border: 2px solid #fff;
   padding: 2em;
 }
-:host:before {
-  content: " ";
-  position: absolute;
-  border: 3px dotted #fff;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul > li {
+  margin-bottom: 4px;
 }
 h2 {
   font-size: 3em;
-  margin: 0;
+  padding: 0;
   color: rgb(148, 192, 204);
 }
 form > section {
@@ -23,22 +20,57 @@ form > section {
 }
 form > section > h1 {
   font-size: 2em;
-  background-color: rgb(244, 244, 240);
-  color: #262223;
-  display: inline;
   padding: 10px;
   text-transform: uppercase;
+  border-bottom: 4px solid rgba(244, 244, 240, 0.6);
+  position: relative;
+}
+form > section > h1:before {
+  content: " ";
+  position: absolute;
+  border-bottom: 3px dotted rgba(244, 244, 240, 0.6);
+  width: 100%;
+  bottom: -14px;
+  left: 0;
 }
 form > section > section > h1 {
   text-transform: uppercase;
   font-size: 1.6em;
 }
+form > section > section {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 1.4em;
+  vertical-align: center;
+}
 input[type=text] {
-  border: 2px solid #fff;
+  font-family: 'Gloria Hallelujah', cursive;
+  border: 0;
+  border-bottom: 3px solid rgba(244, 244, 240, 0.6);;
   font-size: 2em;
   padding: 4px;
-  color: #fff;
+  color: #fad48b;
   background-color: transparent;
+}
+input[type=text]:focus {
+  outline: none;
+}
+select {
+  border: 0;
+  border-bottom: 3px solid rgba(244, 244, 240, 0.6);;
+  font-size: 1.6em;
+  padding: 4px;
+  cursor: pointer;
+  color: #fad48b;
+  background-color: transparent;
+}
+select:focus {
+  outline: none;
+}
+select option {
+  background-color: #262223;
 }
 input[type=checkbox], input[type=radio] {
   width: 28px;
@@ -67,4 +99,24 @@ button:before {
 }
 button:hover {
   color: rgb(148, 192, 204);
+}
+.weird-requests button {
+  font-size: 1em;
+}
+.build-your-own {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.build-your-own > h1, .build-your-own > section {
+  flex: 1 100%;
+}
+@media all and (min-width: 768px) {
+  .build-your-own > section { flex: 1 auto; }
+}
+@media only screen and (max-width: 768px) {
+  .build-your-own > section { flex: 1 50%; }
+}
+@media only screen and (max-width: 425px) {
+  .build-your-own > section { flex: 1 100%; }
 }
