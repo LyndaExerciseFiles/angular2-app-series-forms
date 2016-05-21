@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ControlGroup, Control, ControlArray, RadioButtonState, FormBuilder} from '@angular/common';
+import {ControlGroup, Control, ControlArray, RadioButtonState, FormBuilder, Validators} from '@angular/common';
 import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
 
 @Component({
@@ -21,7 +21,9 @@ export class OrderSheetComponent {
   
   private _buildForm() {
     this.orderSheetForm = this._formBuilder.group({
-      customerName: this._formBuilder.control(null),
+      customerName: this._formBuilder.control(null, 
+        Validators.compose([Validators.required, Validators.minLength(2)])
+      ),
       sizes: this._formBuilder.group({
         sizeSmall: this._formBuilder.control(new RadioButtonState(false, 'small')),
         sizeLarge: this._formBuilder.control(new RadioButtonState(false, 'large'))
