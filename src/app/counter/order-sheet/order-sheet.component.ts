@@ -13,6 +13,7 @@ export class OrderSheetComponent {
   orderSheetForm: ControlGroup;
   weirdRequestsControls: ControlArray;
   formActive = true;
+  showWelcomeMessage = false;
   
   constructor(private _formBuilder: FormBuilder) {
     this._buildForm();
@@ -50,6 +51,11 @@ export class OrderSheetComponent {
         this._formBuilder.control(null)
       ]),
       otherNotes: this._formBuilder.control(null)
+    });
+    
+    let customerNameControl = this.orderSheetForm.find('customerName') as Control;
+    customerNameControl.valueChanges.subscribe(value => {
+      this.showWelcomeMessage = value.toLowerCase().trim() === 'justin s.';
     });
     
     this.weirdRequestsControls = this.orderSheetForm.find('weirdRequests') as ControlArray;

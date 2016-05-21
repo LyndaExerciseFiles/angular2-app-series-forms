@@ -1,7 +1,10 @@
 <h2>Order Sheet</h2>
 <form novalidate *ngIf="formActive" [ngFormModel]="orderSheetForm" (ngSubmit)="onSubmitForm()">
   <section class="customer-name">
-    <input type="text" placeholder="Your Name" ngControl="customerName">
+    <input type="text" placeholder="Your Name" ngControl="customerName" #customerName="ngForm">
+    <div class="welcome-back" *ngIf="showWelcomeMessage">
+      Welcome back {{ customerName.value }}!
+    </div>
   </section>
   <section class="size">
     <h1>Pick your size</h1>
