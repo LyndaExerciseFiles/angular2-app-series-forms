@@ -3,7 +3,7 @@
   <section class="customer-name">
     <input type="text" placeholder="Your Name" ngControl="customerName" #customerName="ngForm">
     <div class="errors" *ngIf="customerName.errors">
-      <div *ngIf="customerName.errors.required">We need your name!</div>
+      <div *ngIf="customerName.errors.required && (customerName.touched || customerName.dirty)">We need your name!</div>
       <div *ngIf="customerName.errors.minlength">Must be at least {{customerName.errors.minlength.requiredLength}} letters</div>
     </div>
     <div class="welcome-back" *ngIf="showWelcomeMessage">
