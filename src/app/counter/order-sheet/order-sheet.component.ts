@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ControlGroup, Control, ControlArray, RadioButtonState, FormBuilder, Validators} from '@angular/common';
+import {radioSetRequired} from '../shared/radio-set-required.function';
 import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
 
 @Component({
@@ -27,7 +28,7 @@ export class OrderSheetComponent {
       sizes: this._formBuilder.group({
         sizeSmall: this._formBuilder.control(new RadioButtonState(false, 'small')),
         sizeLarge: this._formBuilder.control(new RadioButtonState(false, 'large'))
-      }),
+      }, { validator: radioSetRequired }),
       specialtySandwich: this._formBuilder.control(null),
       breads: this._formBuilder.group({
         breadWheatRoll: this._formBuilder.control(new RadioButtonState(false, 'wheat roll')),

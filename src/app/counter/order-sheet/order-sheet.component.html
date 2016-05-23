@@ -12,7 +12,7 @@
   </section>
   <section class="size">
     <h1>Pick your size</h1>
-    <ul ngControlGroup="sizes">
+    <ul ngControlGroup="sizes" #sizes="ngForm">
       <li>
         <input id="sizeSmall" type="radio" name="size" ngControl="sizeSmall">
         <label for="sizeSmall">Small</label>
@@ -22,6 +22,9 @@
         <label for="sizeLarge">Large</label>
       </li>
     </ul>
+    <div class="errors" *ngIf="sizes.errors">
+      <div *ngIf="sizes.errors.atLeastOneRadioRequired">Let us know how hungry you are!</div>
+    </div>
   </section>
   <section class="specialty-sandwiches">
     <h1>Specialty Sandwiches</h1>
