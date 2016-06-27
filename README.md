@@ -1,6 +1,6 @@
 # Angular 2 Forms: Data Binding and Validation
 
-http://www.lynda.com/AngularJS-tutorials/Angular-2-Forms-Data-Binding-Validation/461451-2.html
+https://www.lynda.com/AngularJS-tutorials/Angular-2-Forms-Data-Binding-Validation/461451-2.html
 
 ## Instructions
 
