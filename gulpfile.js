@@ -23,7 +23,7 @@ gulp.task('copylibs', function () {
       'node_modules/systemjs/dist/system-polyfills.js',
       'node_modules/systemjs/dist/system.src.js',
       'node_modules/zone.js/dist/*.js',
-      'node_modules/es6-shim/es6-shim.js',
+      'node_modules/core-js/**/*.js',
       'node_modules/reflect-metadata/*.js',
       'node_modules/rxjs/**/*.js',
       'node_modules/@angular/**/*.js'

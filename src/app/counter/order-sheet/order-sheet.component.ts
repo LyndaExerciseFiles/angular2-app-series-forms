@@ -1,18 +1,17 @@
 import {Component} from '@angular/core';
-import {ControlGroup, Control, ControlArray, RadioButtonState, FormBuilder, Validators} from '@angular/common';
-import {radioSetRequired} from '../shared/radio-set-required.function';
+import {FormGroup, FormControl, FormArray, FormBuilder, Validators, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
 
 @Component({
   selector: 'order-sheet',
-  directives: [DebugPanelComponent],
+  directives: [DebugPanelComponent, REACTIVE_FORM_DIRECTIVES],
   templateUrl: 'order-sheet.component.html',
   styleUrls: ['order-sheet.component.css'],
   moduleId: module.id
 })
 export class OrderSheetComponent {
-  orderSheetForm: ControlGroup;
-  weirdRequestsControls: ControlArray;
+  orderSheetForm: FormGroup;
+  weirdRequestsControls: FormArray;
   formActive = true;
   showWelcomeMessage = false;
   
@@ -25,16 +24,9 @@ export class OrderSheetComponent {
       customerName: this._formBuilder.control(null, 
         Validators.compose([Validators.required, Validators.minLength(2)])
       ),
-      sizes: this._formBuilder.group({
-        sizeSmall: this._formBuilder.control(new RadioButtonState(false, 'small')),
-        sizeLarge: this._formBuilder.control(new RadioButtonState(false, 'large'))
-      }, { validator: radioSetRequired }),
+      size: this._formBuilder.control(null, Validators.required),
       specialtySandwich: this._formBuilder.control(null),
-      breads: this._formBuilder.group({
-        breadWheatRoll: this._formBuilder.control(new RadioButtonState(false, 'wheat roll')),
-        breadWhiteRoll: this._formBuilder.control(new RadioButtonState(false, 'white roll')),
-        breadSourdoughRoll: this._formBuilder.control(new RadioButtonState(false, 'sourdough roll'))
-      }),
+      bread: this._formBuilder.control(null, Validators.required),
       meats: this._formBuilder.group({
         meatHam: this._formBuilder.control(null),
         meatTurkey: this._formBuilder.control(null),
@@ -56,12 +48,12 @@ export class OrderSheetComponent {
       otherNotes: this._formBuilder.control(null)
     });
     
-    let customerNameControl = this.orderSheetForm.find('customerName') as Control;
+    let customerNameControl = this.orderSheetForm.find('customerName') as FormControl;
     customerNameControl.valueChanges.subscribe(value => {
       this.showWelcomeMessage = value.toLowerCase().trim() === 'justin s.';
     });
     
-    this.weirdRequestsControls = this.orderSheetForm.find('weirdRequests') as ControlArray;
+    this.weirdRequestsControls = this.orderSheetForm.find('weirdRequests') as FormArray;
   }
   
   onAddWeirdRequest() {

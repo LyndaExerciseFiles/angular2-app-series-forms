@@ -1,107 +1,107 @@
 <h2>Order Sheet</h2>
-<form novalidate *ngIf="formActive" [ngFormModel]="orderSheetForm" (ngSubmit)="onSubmitForm()">
+<form novalidate *ngIf="formActive" [formGroup]="orderSheetForm" (ngSubmit)="onSubmitForm()">
   <section class="customer-name">
-    <input type="text" placeholder="Your Name" ngControl="customerName" #customerName="ngForm">
-    <div class="errors" *ngIf="customerName.errors">
-      <div *ngIf="customerName.errors.required && (customerName.touched || customerName.dirty)">We need your name!</div>
-      <div *ngIf="customerName.errors.minlength">Must be at least {{customerName.errors.minlength.requiredLength}} letters</div>
+    <input type="text" placeholder="Your Name" formControlName="customerName">
+    <div class="errors" *ngIf="orderSheetForm.controls.customerName.errors">
+      <div *ngIf="orderSheetForm.controls.customerName.errors.required && (orderSheetForm.controls.customerName.touched || orderSheetForm.controls.customerName.dirty)">We need your name!</div>
+      <div *ngIf="orderSheetForm.controls.customerName.errors.minlength">Must be at least {{orderSheetForm.controls.customerName.errors.minlength.requiredLength}} letters</div>
     </div>
     <div class="welcome-back" *ngIf="showWelcomeMessage">
-      Welcome back {{ customerName.value }}!
+      Welcome back {{ orderSheetForm.controls.customerName.value }}!
     </div>
   </section>
   <section class="size">
     <h1>Pick your size</h1>
-    <ul ngControlGroup="sizes" #sizes="ngForm">
+    <ul>
       <li>
-        <input id="sizeSmall" type="radio" name="size" ngControl="sizeSmall">
+        <input id="sizeSmall" type="radio" formControlName="size" value="small">
         <label for="sizeSmall">Small</label>
       </li>
       <li>
-        <input id="sizeLarge" type="radio" name="size" ngControl="sizeLarge">
+        <input id="sizeLarge" type="radio" formControlName="size" value="large">
         <label for="sizeLarge">Large</label>
       </li>
     </ul>
-    <div class="errors" *ngIf="sizes.errors">
-      <div *ngIf="sizes.errors.atLeastOneRadioRequired">Let us know how hungry you are!</div>
+    <div class="errors" *ngIf="orderSheetForm.controls.size.errors">
+      <div *ngIf="orderSheetForm.controls.size.errors.required">Let us know how hungry you are!</div>
     </div>
   </section>
   <section class="specialty-sandwiches">
     <h1>Specialty Sandwiches</h1>
     <label>Me wants:</label>
-    <select ngControl="specialtySandwich" #specialtySandwich="ngForm">
+    <select formControlName="specialtySandwich">
       <option value=""></option>
       <option value="The Grinder">The Grinder</option>
       <option value="Cordon Bleu">Cordon Bleu</option>
       <option value="Cali Cheesesteak">Cali Cheesesteak</option>
     </select>
   </section>
-  <section class="build-your-own" *ngIf="!specialtySandwich.value">
+  <section class="build-your-own" *ngIf="!orderSheetForm.controls.specialtySandwich.value">
     <h1>Build Your Own</h1>
     <section>
       <h1>A Bread</h1>
-      <ul ngControlGroup="breads">
+      <ul>
         <li>
-          <input id="breadWheatRoll" type="radio" name="bread" ngControl="breadWheatRoll">
+          <input id="breadWheatRoll" type="radio" formControlName="bread" value="wheat roll">
           <label for="breadWheatRoll">Wheat Roll</label>
         </li>
         <li>
-          <input id="breadWhiteRoll" type="radio" name="bread" ngControl="breadWhiteRoll">
+          <input id="breadWhiteRoll" type="radio" formControlName="bread" value="white roll">
           <label for="breadWhiteRoll">White Roll</label>
         </li>
         <li>
-          <input id="breadSourdoughRoll" type="radio" name="bread" ngControl="breadSourdoughRoll">
+          <input id="breadSourdoughRoll" type="radio" formControlName="bread" value="sourdough roll">
           <label for="breadSourdoughRoll">Sourdough Roll</label>
         </li>
       </ul>
     </section>
     <section>
       <h1>The Meats</h1>
-      <ul ngControlGroup="meats">
+      <ul formGroupName="meats">
         <li>
-          <input id="meatHam" type="checkbox" ngControl="meatHam">
+          <input id="meatHam" type="checkbox" formControlName="meatHam">
           <label for="meatHam">Ham</label>
         </li>
         <li>
-          <input id="meatTurkey" type="checkbox" ngControl="meatTurkey">
+          <input id="meatTurkey" type="checkbox" formControlName="meatTurkey">
           <label for="meatTurkey">Turkey</label>
         </li>
         <li>
-          <input id="meatRoastBeef" type="checkbox" ngControl="meatRoastBeef">
+          <input id="meatRoastBeef" type="checkbox" formControlName="meatRoastBeef">
           <label for="meatRoastBeef">Roast Beef</label>
         </li>
       </ul>
     </section>
     <section>
       <h1>The Cheeses</h1>
-      <ul ngControlGroup="cheeses">
+      <ul formGroupName="cheeses">
         <li>
-          <input id="cheeseProvolone" type="checkbox" ngControl="cheeseProvolone">
+          <input id="cheeseProvolone" type="checkbox" formControlName="cheeseProvolone">
           <label for="cheeseProvolone">Provolone</label>
         </li>
         <li>
-          <input id="cheeseCheddar" type="checkbox" ngControl="cheeseCheddar">
+          <input id="cheeseCheddar" type="checkbox" formControlName="cheeseCheddar">
           <label for="cheeseCheddar">Cheddar</label>
         </li>
         <li>
-          <input id="cheeseSwiss" type="checkbox" ngControl="cheeseSwiss">
+          <input id="cheeseSwiss" type="checkbox" formControlName="cheeseSwiss">
           <label for="cheeseSwiss">Swiss</label>
         </li>
       </ul>
     </section>
     <section>
       <h1>Veggies 'n Such</h1>
-      <ul ngControlGroup="veggiesAndSuch">
+      <ul formGroupName="veggiesAndSuch">
         <li>
-          <input id="veggieLettuce" type="checkbox" ngControl="veggieLettuce">
+          <input id="veggieLettuce" type="checkbox" formControlName="veggieLettuce">
           <label for="veggieLettuce">Lettuce</label>
         </li>
         <li>
-          <input id="veggieTomato" type="checkbox" ngControl="veggieTomato">
+          <input id="veggieTomato" type="checkbox" formControlName="veggieTomato">
           <label for="veggieTomato">Tomato</label>
         </li>
         <li>
-          <input id="veggieMustard" type="checkbox" ngControl="veggieMustard">
+          <input id="veggieMustard" type="checkbox" formControlName="veggieMustard">
           <label for="veggieMustard">Mustard</label>
         </li>
       </ul>
@@ -109,9 +109,9 @@
   </section>
   <section class="weird-requests">
     <h1>Weird Requests</h1>
-    <ul ngControlGroup="weirdRequests">
+    <ul formGroupName="weirdRequests">
       <li *ngFor="let item of weirdRequestsControls.controls; let i = index">
-        <input type="text" ngControl="{{i}}">
+        <input type="text" formControlName="{{i}}">
         <button type="button" title="Remove Request" (click)="onRemoveWeirdRequest(i)">Remove</button>
       </li>
     </ul>
@@ -119,7 +119,7 @@
   </section>
   <section>
     <h1>Other Notes</h1>
-    <textarea ngControl="otherNotes"></textarea>
+    <textarea formControlName="otherNotes"></textarea>
   </section>
   <button type="submit" [disabled]="!orderSheetForm.valid">Place Order</button>
   <button type="button" (click)="onClearForm()">Reset</button>

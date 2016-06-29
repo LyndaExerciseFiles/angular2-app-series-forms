@@ -4,7 +4,7 @@ import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/c
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'debug-panel',
   template: `
-    <input id="debugToggle" type="checkbox" (change)="isVisible = !isVisible;onSaveState()">
+    <input id="debugToggle" type="checkbox" [checked]="isVisible" (change)="isVisible = !isVisible;onSaveState()">
     <label for="debugToggle"></label>
     <div>
       <pre>{{ data | json }}</pre>
