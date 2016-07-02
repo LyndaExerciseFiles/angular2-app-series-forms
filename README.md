@@ -33,7 +33,7 @@ fine tuned control of your interactions.
     
 4. Run the following to install the project dependencies:
 
-    `npm-install`
+    `npm install`
     
 5. Run the Gulp command to build the code, watch for file changes, and serve up the site locally:
 
