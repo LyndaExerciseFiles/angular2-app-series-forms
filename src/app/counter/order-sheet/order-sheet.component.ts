@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
-import {FormGroup, FormControl, FormArray, FormBuilder, Validators, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
-import {DebugPanelComponent} from '../debug-panel/debug-panel.component';
+import {FormGroup, FormControl, FormArray, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'order-sheet',
-  directives: [DebugPanelComponent, REACTIVE_FORM_DIRECTIVES],
   templateUrl: 'order-sheet.component.html',
   styleUrls: ['order-sheet.component.css'],
   moduleId: module.id
@@ -48,12 +46,12 @@ export class OrderSheetComponent {
       otherNotes: this._formBuilder.control(null)
     });
     
-    let customerNameControl = this.orderSheetForm.find('customerName') as FormControl;
+    let customerNameControl = this.orderSheetForm.controls['customerName'] as FormControl;
     customerNameControl.valueChanges.subscribe(value => {
       this.showWelcomeMessage = value.toLowerCase().trim() === 'justin s.';
     });
     
-    this.weirdRequestsControls = this.orderSheetForm.find('weirdRequests') as FormArray;
+    this.weirdRequestsControls = this.orderSheetForm.controls['weirdRequests'] as FormArray;
   }
   
   onAddWeirdRequest() {

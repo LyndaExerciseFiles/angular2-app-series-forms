@@ -8,12 +8,5 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false
-  },
-  "compileOnSave": false,
-  "exclude": [
-    "node_modules",
-    "dist",
-    "typings",
-    "typings/index.d.ts"
-  ]
+  }
 }
