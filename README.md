@@ -25,7 +25,7 @@ fine tuned control of your interactions.
   - [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 2. Clone this repository into your local machine using the terminal (mac) or Gitbash (PC) 
 
-    `git clone https://github.com/LyndaExerciseFiles/angular2-app-series-forms.git`
+    `git clone https://github.com/coursefiles/angular2-reactive-forms-data-and-validation.git`
     
 3. CD to the folder
 
