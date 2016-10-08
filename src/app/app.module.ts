@@ -7,17 +7,17 @@ import { OrderSheetComponent } from './counter/order-sheet/order-sheet.component
 import { DebugPanelComponent } from './counter/debug-panel/debug-panel.component';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule
-    ],
-    declarations: [
-        SandoAppComponent,
-        OrderSheetComponent,
-        DebugPanelComponent
-    ],
-    bootstrap: [
-        SandoAppComponent
-    ]
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    SandoAppComponent,
+    OrderSheetComponent,
+    DebugPanelComponent
+  ],
+  bootstrap: [
+    SandoAppComponent
+  ]
 })
 export class AppModule { }

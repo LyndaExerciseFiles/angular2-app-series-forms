@@ -33,9 +33,9 @@ gulp.task('copylibs', function () {
 
 gulp.task('typescript', function () {
   return gulp
-    .src(['typings/browser.d.ts', 'src/**/*.ts'])
+    .src(['src/**/*.ts'])
     .pipe(sourcemaps.init())
-    .pipe(typescript(tsProject))
+    .pipe(tsProject())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(appSrc));
 });

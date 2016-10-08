@@ -1,4 +1,4 @@
-import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/core';
+import { Component, Input, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -60,11 +60,9 @@ import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/c
 })
 export class DebugPanelComponent {
   @Input() data;
-  @HostBinding('class.has-content')
-  get content() { return this.hasContent; }
+  @HostBinding('class.has-content') get content() { return this.hasContent; }
   hasContent = false;
-  @HostBinding('class.is-visible') 
-  get visible() { return this.isVisible; }
+  @HostBinding('class.is-visible') get visible() { return this.isVisible; }
   isVisible = false;
   
   constructor() {
@@ -74,6 +72,7 @@ export class DebugPanelComponent {
   ngOnInit() {
     this.hasContent = (this.data);
   }
+
   onSaveState(){
     localStorage.setItem('debugIsVisible', this.isVisible.toString());
   }

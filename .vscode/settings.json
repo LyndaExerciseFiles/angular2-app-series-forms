@@ -4,7 +4,6 @@
     "**/.svn": true,
     "**/.DS_Store": true,
     "dist": true,
-    "node_modules": true,
-    "typings": true
+    "node_modules": true
   }
 }

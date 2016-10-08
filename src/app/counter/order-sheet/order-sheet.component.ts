@@ -1,11 +1,10 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormControl, FormArray, FormBuilder, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'order-sheet',
-  templateUrl: 'order-sheet.component.html',
-  styleUrls: ['order-sheet.component.css'],
-  moduleId: module.id
+  templateUrl: 'app/counter/order-sheet/order-sheet.component.html',
+  styleUrls: ['app/counter/order-sheet/order-sheet.component.css']
 })
 export class OrderSheetComponent {
   orderSheetForm: FormGroup;
