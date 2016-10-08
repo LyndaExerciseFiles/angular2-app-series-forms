@@ -12,49 +12,49 @@ export class OrderSheetComponent {
   formActive = true;
   showWelcomeMessage = false;
   
-  constructor(private _formBuilder: FormBuilder) {
-    this._buildForm();
+  constructor(private formBuilder: FormBuilder) {
+    this.buildForm();
   }
   
-  private _buildForm() {
-    this.orderSheetForm = this._formBuilder.group({
-      customerName: this._formBuilder.control(null, 
+  private buildForm() {
+    this.orderSheetForm = this.formBuilder.group({
+      customerName: this.formBuilder.control(null, 
         Validators.compose([Validators.required, Validators.minLength(2)])
       ),
-      size: this._formBuilder.control(null, Validators.required),
-      specialtySandwich: this._formBuilder.control(null),
-      bread: this._formBuilder.control(null, Validators.required),
-      meats: this._formBuilder.group({
-        meatHam: this._formBuilder.control(null),
-        meatTurkey: this._formBuilder.control(null),
-        meatRoastBeef: this._formBuilder.control(null)
+      size: this.formBuilder.control(null, Validators.required),
+      specialtySandwich: this.formBuilder.control(null),
+      bread: this.formBuilder.control(null, Validators.required),
+      meats: this.formBuilder.group({
+        meatHam: this.formBuilder.control(null),
+        meatTurkey: this.formBuilder.control(null),
+        meatRoastBeef: this.formBuilder.control(null)
       }),
-      cheeses: this._formBuilder.group({
-        cheeseProvolone: this._formBuilder.control(null),
-        cheeseCheddar: this._formBuilder.control(null),
-        cheeseSwiss: this._formBuilder.control(null)
+      cheeses: this.formBuilder.group({
+        cheeseProvolone: this.formBuilder.control(null),
+        cheeseCheddar: this.formBuilder.control(null),
+        cheeseSwiss: this.formBuilder.control(null)
       }),
-      veggiesAndSuch: this._formBuilder.group({
-        veggieLettuce: this._formBuilder.control(null),
-        veggieTomato: this._formBuilder.control(null),
-        veggieMustard: this._formBuilder.control(null)
+      veggiesAndSuch: this.formBuilder.group({
+        veggieLettuce: this.formBuilder.control(null),
+        veggieTomato: this.formBuilder.control(null),
+        veggieMustard: this.formBuilder.control(null)
       }),
-      weirdRequests: this._formBuilder.array([
-        this._formBuilder.control(null)
+      weirdRequests: this.formBuilder.array([
+        this.formBuilder.control(null)
       ]),
-      otherNotes: this._formBuilder.control(null)
+      otherNotes: this.formBuilder.control(null)
     });
     
     let customerNameControl = this.orderSheetForm.controls['customerName'] as FormControl;
     customerNameControl.valueChanges.subscribe(value => {
-      this.showWelcomeMessage = value.toLowerCase().trim() === 'justin s.';
+      this.showWelcomeMessage = value && value.toLowerCase().trim() === 'justin s.';
     });
     
     this.weirdRequestsControls = this.orderSheetForm.controls['weirdRequests'] as FormArray;
   }
   
   onAddWeirdRequest() {
-    this.weirdRequestsControls.push(this._formBuilder.control(null));
+    this.weirdRequestsControls.push(this.formBuilder.control(null));
   }
   
   onRemoveWeirdRequest(index) {
@@ -62,11 +62,7 @@ export class OrderSheetComponent {
   }
   
   onClearForm() {
-    this._buildForm();
-    this.formActive = false;
-    setTimeout(() => {
-      this.formActive = true;
-    }, 0);
+    this.orderSheetForm.reset();
   }
   
   onSubmitForm() {
